@@ -1497,7 +1497,9 @@ function calculateCraftCost(craftData) {
             const craftInfo = CRAFTS_DATA.find(c => c.name === ingredient.name);
             if (craftInfo) {
                 const craftCost = calculateCraftCost(craftInfo);
-                totalCost += craftCost.totalCost * requiredQty;
+                // IMPORTANT : Utiliser le prix de VENTE du craft (coût × multiplicateur)
+                const craftSellValue = craftCost.totalCost * craftInfo.multiplier;
+                totalCost += craftSellValue * requiredQty;
             }
         } else if (ingredient.type === 'special') {
             // Item spécial (obtenu au prestige)
