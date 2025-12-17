@@ -1,0 +1,121 @@
+📘 Cahier des Charges – Clicker Game Donjons & Dragons
+🎮 Concept général
+
+Un jeu de type clicker inspiré de l’univers Donjons & Dragons, avec une boucle de jeu basée sur des journées de 24 secondes (1 seconde = 1 heure).
+Le joueur agit pendant la journée (clics, décisions) mais ne reçoit les gains qu’à la fin de chaque journée, sous forme de rapport de production.
+
+⏱️ 1. Structure temporelle
+
+Une journée dure 24 secondes, divisée en :
+
+Matin : 0 à 8 s
+
+Après-midi : 8 à 16 s
+
+Soir : 16 à 24 s
+
+À la fin (24e seconde), le résultat global est affiché :
+
+Clics
+
+Production automatique
+
+Ressources récoltées
+
+Argent gagné
+
+💸 2. Monnaie & économie
+Monnaie
+Nom	Abréviation	Conversion
+Centime de cuivre	0.01 pc	100 clics = 1 pc
+Pièce de cuivre	pc	Base
+Pièce d’argent	pc	100 pc
+Pièce d’or	po	100 pc = 10 000 pc
+Pièce de platine	pp	100 po = 1 000 000 pc
+Diamant	♦	1000 pp = 1 000 000 000 pc
+Essence divine ✦ = 1000 ♦
+Fragment d'éternité ⟁ = 1 000 ✦
+Souffle du Multivers ∞ = 1000 ⟁
+Eclat d'origine ✪ = 1000 ∞
+
+Clic manuel
+
+1 clic = 0.01 pc
+
+Les clics sont enregistrés mais ne rapportent qu’en fin de journée
+
+🏗️ 3. Bâtiments & améliorations
+Règles générales
+
+Chaque bâtiment produit automatiquement quelque chose (argent ou ressource)
+
+Les ressources sont revendables directement (pas de craft)
+
+Les gains sont versés uniquement en fin de journée
+
+Chaque amélioration de bâtiment ajoute +1x la production du niveau 1
+
+Le coût d’amélioration d’un même bâtiment augmente de +20% à chaque niveau
+
+Exemple amélioration :
+
+Niveau 1 : coût = 100 pc, prod = 10 pc
+
+Niveau 2 : coût = 120 pc, prod = 20 pc (total)
+
+Niveau 3 : coût = 144 pc, prod = 30 pc (total)
+
+etc.
+
+| Rang | Nom du bâtiment           | Prix Niv. 1           | Prod / jour (valeur)               | Horaire          | Type                |
+| ---- | ------------------------- | --------------------- | ---------------------------------- | ---------------- | ------------------- |
+| 1    | Mendiant                  | 1 pc                  | 2 pc                               | Toute la journée | Argent simple       |
+| 2    | Fouille-Tas               | 10 pc                 | 8 pc (±50%)                        | Aléatoire        | Argent variable     |
+| 3    | Fermier                   | 50 pc                 | 2 légumes (10 pc/unité)            | Matin + aprem    | Ressource           |
+| 4    | Barde                     | 2 pa                  | 100 pc                             | Soir             | Argent              |
+| 5    | Chasseur                  | 10 pa                 | 1 peau (50 pc) + 1 viande (20 pc)  | Toute la journée | Ressources          |
+| 6    | Mineur                    | 5 000 pc (50 pa)      | 2 minerais (40 pc/unité)           | Aprem            | Ressource           |
+| 7    | Forgeron                  | 25 000 pc (2,5 po)    | 1 arme (500 pc)                    | Aprem + soir     | Ressource           |
+| 8    | Marchand                  | 100 000 pc (10 po)    | 800 pc                             | Toute la journée | Argent              |
+| 9    | Alchimiste                | 500 000 pc (50 po)    | 1 potion (3 000 pc)                | aprem            | Ressource rare      |
+| 10   | Tour du Mage              | 5 000 000 pc (500 po) | 1 cristal de mana (50 000 pc)      | Toute la journée | Ressource précieuse |
+| 11   | Observatoire Arcanique    | 5 pp                  | 1 énergie cosmique (100 000 pc)    | Matin            | Ressource           |
+| 12   | Sanctuaire de l’Esprit    | 50 pp                 | 1 relique sacrée (400 000 pc)      | Toute la journée | Ressource           |
+| 13   | Trône du Sorcier-Roi      | 5 ♦                   | 1 sceau magique (1 500 000 pc)     | Aprem            | Ressource           |
+| 14   | Citadelle du Vide         | 50 ♦                  | 1 écho du néant (5 000 000 pc)     | Nuit             | Ressource           |
+| 15   | Temple du Temps           | 500 ♦                 | 1 sablier éternel (15 000 000 pc)  | Toute la journée | Ressource           |
+| 16   | Forge Stellaire           | 5 ✦                   | 1 cœur d’étoile (50 000 000 pc)    | Soir             | Ressource           |
+| 17   | Palais Draconique         | 50 ✦                  | 1 œuf de dragon (150 000 000 pc)   | Soir             | Ressource           |
+| 18   | Forteresse Céleste        | 500 ✦                 | 1 pierre céleste (500 000 000 pc)  | Toute la journée | Ressource           |
+| 19   | Trône de l’Équilibre      | 5 ⟁                   | 1 essence primordiale (1.5 Mds pc) | Toute la journée | Ressource           |
+| 20   | Domaine des Dieux Oubliés | 50 ⟁                  | 1 souffle divin (5 Mds pc)         | Nuit             | Ressource ultime    |
+
+📊 Progression attendue
+
+Les 3–4 premiers bâtiments sont rapidement atteignables (grâce aux clics)
+
+Ensuite, le joueur entre dans une phase d’automatisation et choix
+
+À partir de l’or (forgeron/marchand), les temps de progression s’allongent
+
+Les derniers bâtiments (à base de platine/diamants) constituent le contenu endgame
+
+✅ Ce que le jeu contient à ce stade
+
+Mécanique centrale : clic retardé + auto production avec gains en fin de cycle
+
+Économie cohérente : simple mais avec montée en puissance continue
+
+20 bâtiments uniques avec :
+
+Horaires différents
+
+Types de production variés (argent / ressources revendables)
+
+Progression linéaire par amélioration (+100% prod de base)
+
+Coût d’amélioration croissant de +20% par niveau
+
+Une ambiance Donjons & Dragons fidèle mais adaptée à la logique clicker
+
+Une sauvegarde de la progression du joueur ! avec un bouton adapté

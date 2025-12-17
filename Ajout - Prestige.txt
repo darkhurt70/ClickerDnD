@@ -1,0 +1,92 @@
+Cahier des charges – Système de Prestige (Réincarnation héroïque)
+🧠 Concept
+
+Le prestige représente l'expérience cosmique accumulée à travers les réincarnations.
+Il permet de redémarrer le jeu à zéro avec un bonus permanent sur tous les gains.
+Il constitue une nouvelle ressource de progression, débloquant des systèmes à venir.
+
+🔓 Déblocage du prestige
+Conditions requises pour déverrouiller l’option :
+
+Le joueur doit avoir obtenu au moins 1 diamant (♦)
+
+Le bouton "Réincarner" devient alors visible dans l’interface
+
+Conditions pour se réincarner :
+
+Le joueur doit dépenser 100 diamants (♦) pour se réincarner
+
+Cette consommation est obligatoire à chaque réincarnation
+
+Il doit valider l’action (confirmation demandée)
+
+🔁 Effets de la réincarnation
+| Effet                         | Description                                                                                         |
+| ----------------------------- | --------------------------------------------------------------------------------------------------- |
+| **Réinitialisation complète** | Tous les bâtiments, ressources, clics et améliorations sont réinitialisés                           |
+| **Conservation du Prestige**  | Les **points de prestige sont conservés entre les runs**                                            |
+| **Bonus universel**           | Chaque point de prestige augmente **tous les gains** (clics, auto, ressources) de **+1% cumulatif** |
+| **Effets futurs**             | Le prestige pourra être utilisé plus tard pour **contenu cosmique, arbres, bonus spéciaux**, etc.   |
+
+Gagner des points de prestige : 
+
+Règle de base :
+
+Le Prestige dépend de la quantité de richesse détenue au moment de la réincarnation, à partir du palier diamant (♦).
+
+Formule :
+Prestige = floor( log10(Argent total en cc) ) - 12
+
+Explication :
+
+1 diamant = 1 000 000 000 cc → log10 = 9 → pas encore de Prestige
+
+Le prestige commence à 10 milliards (10♦) → log10(10 000 000 000) = 10
+➤ 10 - 12 = -2 → 0 (minimum)
+➤ Donc on commence à 100 ♦
+
+Ensuite, on gagne 1 point de Prestige tous les ×10 en richesse au moment de la réincarnation
+
+Tableau d'exemple : 
+
+| Richesse détenue à la réincarnation  | Formule log10     | Prestige obtenu |
+| ------------------------------------ | ----------------- | --------------- |
+| 1 000 000 000 cc (1 ♦)               | log10(9) = 9      | ❌ Non éligible  |
+| 10 000 000 000 cc (10 ♦)             | 10                | ❌ Non éligible  |
+| 100 000 000 000 cc (100 ♦)           | 11                | ❌ Non éligible  |
+| 1 000 000 000 000 cc (1 ✦)           | 12 → Prestige = 0 | ✅ Minimum       |
+| 10 000 000 000 000 cc (10 ✦)         | 13 → Prestige = 1 | ✅               |
+| 100 000 000 000 000 cc (100 ✦)       | 14 → Prestige = 2 | ✅               |
+| 1 ∞ (Souffle du Multivers) = 1e15 cc | 15 → Prestige = 3 | ✅               |
+
+Bonus de Prestige
+
+Chaque point de Prestige offre :
+
++1% de gain global (stackable à l’infini)
+
+Bonus immédiat dès le redémarrage
+
+S’applique sur :
+
+Clics
+
+Revenus automatiques
+
+Valeur des ressources
+
+Ex : Prestige 5 → tous les gains x1.05
+Ex : Prestige 150 → tous les gains x2.5
+
+
+Interface : 
+onglet prestige 
+
+| Élément              | Description                                        |
+| -------------------- | -------------------------------------------------- |
+| 🔓 Débloqué          | Affiché uniquement après 1 diamant obtenu          |
+| 💎 Coût d’activation | 100 ♦ (affiché + bouton d'achat)                   |
+| 📊 Richesse actuelle | Argent total actuel (cc), converti + log10 calculé |
+| 🔢 Prestige calculé  | Nombre de points obtenus si activation             |
+| ✅ Confirmation       | Bouton "Se réincarner" → popup de confirmation     |
+| 🌀 Réinitialisation  | Animation ou effet cosmique (facultatif)           |

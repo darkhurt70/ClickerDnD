@@ -1,0 +1,68 @@
+Cahier des charges – Capacités passives par bâtiment
+🎯 Règles générales
+
+Chaque bâtiment possède 4 capacités déblocables :
+
+Pallier 10 améliorations
+
+Pallier 50
+
+Pallier 100
+
+Pallier 500
+
+Ces capacités sont optionnelles et très coûteuses à débloquer.
+Le coût augmente à chaque pallier.
+
+💰 Tableau révisé des PRIX par bâtiment
+
+| Rang | Bâtiment             | P10   | P50      | P100 (↑)  | P500 (↑)   |
+| ---- | -------------------- | ----- | -------- | --------- | ---------- |
+| 1    | Mendiant             | 1 po  | 100 po   | 2 000 po  | 50 000 po  |
+| 2    | Fouille-Tas          | 2 po  | 200 po   | 4 000 po  | 100 000 po |
+| 3    | Fermier              | 3 po  | 300 po   | 6 000 po  | 150 000 po |
+| 4    | Barde                | 5 po  | 500 po   | 10 000 po | 250 000 po |
+| 5    | Chasseur             | 10 po | 1 000 po | 20 000 po | 500 000 po |
+| 6    | Mineur               | 1 pp  | 50 pp    | 1 000 pp  | 25 000 pp  |
+| 7    | Forgeron             | 2 pp  | 100 pp   | 2 000 pp  | 50 000 pp  |
+| 8    | Marchand             | 3 pp  | 150 pp   | 3 000 pp  | 75 000 pp  |
+| 9    | Alchimiste           | 5 pp  | 250 pp   | 5 000 pp  | 125 000 pp |
+| 10   | Tour du Mage         | 10 pp | 500 pp   | 10 000 pp | 250 000 pp |
+| 11   | Observatoire         | 0.2 ♦ | 20 ♦     | 400 ♦     | 10 000 ♦   |
+| 12   | Sanctuaire           | 0.4 ♦ | 40 ♦     | 800 ♦     | 20 000 ♦   |
+| 13   | Trône Sorcier        | 0.6 ♦ | 60 ♦     | 1 200 ♦   | 30 000 ♦   |
+| 14   | Citadelle du Vide    | 0.8 ♦ | 80 ♦     | 1 600 ♦   | 40 000 ♦   |
+| 15   | Temple du Temps      | 1 ♦   | 100 ♦    | 2 000 ♦   | 50 000 ♦   |
+| 16   | Forge Stellaire      | 0.1 ✦ | 10 ✦     | 200 ✦     | 5 000 ✦    |
+| 17   | Palais Draconique    | 0.2 ✦ | 20 ✦     | 400 ✦     | 10 000 ✦   |
+| 18   | Forteresse Céleste   | 0.3 ✦ | 30 ✦     | 600 ✦     | 15 000 ✦   |
+| 19   | Trône de l’Équilibre | 0.5 ✦ | 50 ✦     | 1 000 ✦   | 25 000 ✦   |
+| 20   | Domaine des Dieux    | 1 ✦   | 100 ✦    | 2 000 ✦   | 50 000 ✦   |
+
+🧠 Tableau révisé des EFFETS par bâtiment
+
+| Rang | Bâtiment              | Pallier 10 | Pallier 50  | Pallier 100 (↑)    | Pallier 500 (↑)   |
+| ---- | --------------------- | ---------- | ----------- | ------------------ | ----------------- |
+| 1    | Mendiant              | +50%       | +100%       | **+300%**          | **+20 000%**      |
+| 2    | Fouille-Tas           | +50%		 | +100% | **+200%**          | **x250**          |
+| 3    | Fermier               | +1 légume  | x2 légumes  | **x5**             | **x200**          |
+| 4    | Barde                 | +50 cc     | +150 %     | **+500 %**        | **+20 000%**      |
+| 5    | Chasseur              | +1 viande  | x2 viande   | +2 peau            | **x200 prod**     |
+| 6    | Mineur                | +1 minerai | x2 minerai  | **+50% revente**   | **x200 minerai**  |
+| 7    | Forgeron              | +1 arme    | x2 armes    | x4 armes           | **x200 armes**    |
+| 8    | Marchand              | +5% global | +10% global | **+30% global**    | **+55% global**   |
+| 9    | Alchimiste            | +1 potion  | x2 potions  | x4 potions         | **x200 potions**  |
+| 10   | Tour du Mage          | +10 000 cc | +25 000 cc  | **+100 000 cc**    | **x250**          |
+| 11   | Observatoire          | +1 énergie | x2 énergie  | **+100% vente**    | **x250 énergie**  |
+| 12   | Sanctuaire            | +1 relique | x2 reliques | **x4**             | **x250**          |
+| 13   | Trône Sorcier         | +1 sceau   | x2 sceaux   | **+200% vente**    | **x250 sceaux**   |
+| 14   | Citadelle Vide        | +1 écho    | x2 échos    | **x4**             | **x250**          |
+| 15   | Temple Temps          | +1 sablier | x2 sabliers | **x3 +100% vente** | **x250 sabliers** |
+| 16   | Forge Stellaire       | +1 cœur    | x2 cœurs    | x4 cœurs           | **x250 cœurs**    |
+| 17   | Palais Draconique     | +1 œuf     | x2 œufs     | **+200% valeur**   | **x250 œufs**     |
+| 18   | Forteresse Céleste    | +1 pierre  | x2 pierres  | x4 pierres         | **x250**          |
+| 19   | Trône Équilibre       | +1 essence | x2 essences | **+200% valeur**   | **x250 essences** |
+| 20   | Domaine Dieux Oubliés | +1 souffle | x2 souffles | **+200% valeur**   | **x250 souffles** |
+
+
+

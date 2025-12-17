@@ -1,0 +1,200 @@
+📘 Cahier des Charges – L’Orphelinat de Riton (Version validée)
+🎭 Concept
+
+L’Orphelinat de Riton est un système de progression passive à long terme, basé sur :
+
+le temps
+
+le prestige cumulé
+
+la rareté
+
+l’orientation stratégique des bonus
+
+Il ne remplace aucun système existant, mais agit comme un amplificateur transversal de toute l’économie.
+
+🔓 Déblocage
+Élément	Détail
+Déblocage	Après la 1ère réincarnation
+Accès	Nouvel onglet : 👶 Orphelinat
+Persistance	❌ Les enfants sont perdus à la réincarnation
+Exception	Le prestige total cumulé (même dépensé) est conservé et utilisé
+⭐ Prestige Total (clé du système)
+
+🔹 Le jeu conserve une variable :
+
+Prestige Total Cumulé
+
+Il augmente à chaque réincarnation
+
+Il ne diminue jamais
+
+Il est indépendant du prestige disponible/dépensé
+
+🏠 Capacité maximale d’enfants
+
+La capacité de l’Orphelinat dépend uniquement du Prestige Total Cumulé.
+
+📐 Formule proposée
+Capacité max = 1 + floor( Prestige Total ^ 0.5 )
+
+📊 Exemples
+Prestige total	Capacité max
+0	1
+1	2
+4	3
+9	4
+25	6
+100	11
+400	21
+1 000	32
+
+➡️ Progression lente, lisible, et très satisfaisante.
+
+👶 Apparition & Vieillissement des enfants
+Règle	Valeur
+Apparition	1 enfant tous les 10 jours
+Condition	Place libre obligatoire
+Âge initial	6 ans
+Vieillissement	+1 an tous les 10 jours
+Départ	À 16 ans (donc 10 cycles = 100 jours)
+🎲 Rareté des enfants
+Rareté	Probabilité	Bonus final
+Commune	75%	+1%
+Rare	18%	+3%
+Épique	6%	+5%
+Légendaire	1%	+10%
+
+⚠️ Les légendaires sont volontairement très rares.
+
+🧭 Affinité des enfants
+
+Chaque enfant naît avec UNE affinité unique, qui détermine où il ira à 16 ans.
+
+🏗️ Production
+
+Fermier
+
+Chasseur
+
+Mineur
+
+⚙️ Craft
+
+Forgeron
+
+Alchimiste
+
+Forge Stellaire
+
+💰 Argent
+
+Mendiant
+
+Barde
+
+Marchand
+
+🔮 Magie
+
+Tour du Mage
+
+Observatoire Arcanique
+
+Sanctuaire de l’Esprit
+
+🌀 Chaos
+
+Temple du Temps
+
+Forteresse Céleste
+
+🏡 Effet tant que l’enfant est à l’Orphelinat
+
+🔹 Bonus global passif cumulatif
+
+📐 Formule
+Bonus global = (Nombre d’enfants présents × 0.5%)
+
+Exemple
+
+6 enfants → +3% gains globaux
+
+12 enfants → +6% gains globaux
+
+✔ Simple
+✔ Lisible
+✔ Toujours utile
+
+🎓 Départ à 16 ans – Affectation automatique
+
+À 16 ans :
+
+L’enfant quitte l’orphelinat
+
+Il est affecté automatiquement à son secteur d’affinité
+
+Son bonus devient permanent jusqu’à la prochaine réincarnation
+
+🎁 Bonus appliqués après affectation
+🔹 Valeur du bonus
+
+Dépend uniquement de la rareté :
+
+Rareté	Bonus
+Commune	+1%
+Rare	+3%
+Épique	+5%
+Légendaire	+10%
+🧱 Règle spéciale – Bâtiments à objets
+
+Pour les bâtiments produisant des objets revendables :
+
+Le bonus augmente la valeur de l’objet
+
+Pas la quantité
+
+📌 Exemple :
+
++5% Craft Forgeron → armes +5% valeur
+
+📊 Cumul des bonus
+
+Les bonus :
+
+se cumulent par bâtiment
+
+se cumulent entre enfants
+
+Sont appliqués avant les multiplicateurs globaux (prestige, cartes, monuments)
+
+🖥️ Interface Orphelinat
+Affichage par enfant :
+
+Icône âge (6 → 16)
+
+Rareté (cadre couleur)
+
+Affinité (icône)
+
+Jours restants avant départ
+
+Panneau global :
+
+Prestige total
+
+Capacité max
+
+Enfants présents
+
+Bonus global actuel
+
+Bonus permanents par secteur
+
+🎯 Intérêt Gameplay
+
+✔ Rend le prestige encore plus désirable
+✔ Récompense le temps long
+✔ Ajoute une progression non exponentielle mais stable
+✔ Crée de la rareté émotionnelle (légendaires)
+✔ Aucun micro-management pénible

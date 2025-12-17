@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clicker Game - Donjons & Dragons</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- En-tête -->
+        <header class="game-header">
+            <h1 class="game-title">Donjons & Dragons Clicker</h1>
+            <div class="money-display">
+                <span class="money-label">Trésor :</span>
+                <span id="money-value">0 pc</span>
+            </div>
+            <div class="time-display">
+                <div class="time-info">
+                    <span class="period-label">Période :</span>
+                    <span id="period-value">Matin</span>
+                </div>
+                <div class="timer-bar">
+                    <div id="timer-progress" class="timer-progress"></div>
+                </div>
+                <div class="time-info">
+                    <span id="time-value">Heure : 0h</span>
+                </div>
+            </div>
+        </header>
+
+        <!-- Zone principale -->
+        <main class="game-main">
+            <!-- Zone de clic -->
+            <section class="click-zone">
+                <button id="click-button" class="click-button">
+                    <span class="button-text">Aventurer !</span>
+                </button>
+                <div class="click-counter">
+                    <span class="counter-label">Clics aujourd'hui :</span>
+                    <span id="click-count">0</span>
+                </div>
+            </section>
+
+            <!-- Onglets -->
+            <section class="tabs-section">
+                <div class="tabs-header">
+                    <button class="tab-button active" data-tab="buildings">Établissements</button>
+                    <button class="tab-button" data-tab="inventory">Inventaire</button>
+                    <button class="tab-button" id="workshop-tab-button" data-tab="workshop" style="display: none;">⚒️ Atelier</button>
+                    <button class="tab-button" id="orphanage-tab-button" data-tab="orphanage" style="display: none;">👶 Orphelinat</button>
+                    <button class="tab-button" id="prestige-tab-button" data-tab="prestige" style="display: none;">🌟 Prestige</button>
+                </div>
+
+                <!-- Liste des bâtiments -->
+                <div id="buildings-tab" class="tab-content active">
+                    <div id="buildings-list" class="buildings-list">
+                        <!-- Les bâtiments seront générés dynamiquement -->
+                    </div>
+                </div>
+
+                <!-- Inventaire -->
+                <div id="inventory-tab" class="tab-content">
+                    <div id="inventory-list" class="inventory-list">
+                        <!-- L'inventaire sera généré dynamiquement -->
+                    </div>
+                </div>
+
+                <!-- Prestige -->
+                <div id="prestige-tab" class="tab-content">
+                    <div class="prestige-container">
+                        <div class="prestige-header">
+                            <h2 class="prestige-title">🌟 Réincarnation Héroïque</h2>
+                            <p class="prestige-description">Redémarrez votre aventure avec un bonus permanent sur tous les gains.</p>
+                        </div>
+
+                        <div class="prestige-stats">
+                            <div class="prestige-stat-box">
+                                <span class="prestige-stat-label">Points de Prestige actuels</span>
+                                <span class="prestige-stat-value" id="current-prestige">0</span>
+                            </div>
+                            <div class="prestige-stat-box">
+                                <span class="prestige-stat-label">Bonus actuel</span>
+                                <span class="prestige-stat-value" id="prestige-bonus">+0%</span>
+                            </div>
+                        </div>
+
+                        <div class="prestige-calculation">
+                            <h3 class="prestige-section-title">Calcul de la réincarnation</h3>
+                            <div class="prestige-info-box">
+                                <div class="prestige-info-line">
+                                    <span class="prestige-info-label">💰 Richesse actuelle :</span>
+                                    <span class="prestige-info-value" id="prestige-current-money">0 pc</span>
+                                </div>
+                                <div class="prestige-info-line">
+                                    <span class="prestige-info-label">🔢 Points obtenus :</span>
+                                    <span class="prestige-info-value" id="prestige-gain">+0</span>
+                                </div>
+                                <div class="prestige-info-line">
+                                    <span class="prestige-info-label">💎 Coût :</span>
+                                    <span class="prestige-info-value">100 ♦</span>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="prestige-actions">
+                            <button class="prestige-button" id="reincarnate-button" onclick="reincarnate()">
+                                🔁 Se Réincarner
+                            </button>
+                            <p class="prestige-warning">⚠️ Cette action réinitialisera toute votre progression (sauf le prestige)</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Atelier de Vargas -->
+                <div id="workshop-tab" class="tab-content">
+                    <div class="workshop-container">
+                        <div class="workshop-header">
+                            <h2 class="workshop-title">⚒️ Atelier de Vargas</h2>
+                            <p class="workshop-description">Transformez vos ressources en objets précieux et construisez des monuments légendaires.</p>
+                        </div>
+
+                        <!-- Gestion des slots et file -->
+                        <div class="workshop-management">
+                            <div class="workshop-section">
+                                <h3 class="workshop-section-title">🎛️ Slots de Fabrication (<span id="workshop-slots-current">1</span>/6)</h3>
+                                <div id="workshop-slots-list" class="workshop-slots-list">
+                                    <!-- Les slots seront générés dynamiquement -->
+                                </div>
+                                <button id="buy-slot-button" class="workshop-buy-button" onclick="buyWorkshopSlot()">
+                                    Acheter un slot - <span id="slot-cost">100 po</span>
+                                </button>
+                            </div>
+
+                            <div class="workshop-section">
+                                <h3 class="workshop-section-title">📜 File d'Attente (<span id="workshop-queue-current">0</span>/<span id="workshop-queue-max">1</span>)</h3>
+                                <div id="workshop-queue-list" class="workshop-queue-list">
+                                    <!-- La file d'attente sera générée dynamiquement -->
+                                </div>
+                                <button id="buy-queue-button" class="workshop-buy-button" onclick="buyWorkshopQueue()">
+                                    Agrandir la file - <span id="queue-cost">10 po</span>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Sous-onglets de l'atelier -->
+                        <div class="workshop-tabs">
+                            <button class="workshop-tab-button active" data-workshop-tab="crafts">🧾 Crafts Standards</button>
+                            <button class="workshop-tab-button" data-workshop-tab="monuments">🏛️ Monuments</button>
+                            <button class="workshop-tab-button" data-workshop-tab="rose">🌹 Rose d'Éther</button>
+                        </div>
+
+                        <!-- Liste des crafts standards -->
+                        <div id="workshop-crafts-tab" class="workshop-tab-content active">
+                            <div class="workshop-filter">
+                                <label>
+                                    Filtrer par tier :
+                                    <select id="craft-tier-filter" onchange="updateWorkshopDisplay()">
+                                        <option value="all">Tous</option>
+                                        <option value="1">Tier 1 - Simples</option>
+                                        <option value="2">Tier 2 - Artisanat</option>
+                                        <option value="3">Tier 3 - Alchimique</option>
+                                        <option value="4">Tier 4 - Sacré</option>
+                                        <option value="5">Tier 5 - Entropique</option>
+                                    </select>
+                                </label>
+                            </div>
+                            <div id="crafts-list" class="workshop-crafts-list">
+                                <!-- Les crafts seront générés dynamiquement -->
+                            </div>
+                        </div>
+
+                        <!-- Liste des monuments -->
+                        <div id="workshop-monuments-tab" class="workshop-tab-content">
+                            <div id="monuments-list" class="workshop-monuments-list">
+                                <!-- Les monuments seront générés dynamiquement -->
+                            </div>
+                        </div>
+
+                        <!-- Rose d'Éther -->
+                        <div id="workshop-rose-tab" class="workshop-tab-content">
+                            <div class="rose-info">
+                                <p class="rose-description">
+                                    🌹 Les Roses d'Éther sont des crafts progressifs ultra-rares qui nécessitent les monuments correspondants.<br>
+                                    La <strong>Rose d'Éther finale</strong> double les points de prestige gagnés lors de la réincarnation !
+                                </p>
+                            </div>
+                            <div id="rose-list" class="workshop-rose-list">
+                                <!-- Les Rose d'Éther seront générées dynamiquement -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Orphelinat de Riton -->
+                <div id="orphanage-tab" class="tab-content">
+                    <div class="orphanage-container">
+                        <div class="orphanage-header">
+                            <h2 class="orphanage-title">👶 Orphelinat de Riton</h2>
+                            <p class="orphanage-description">Les enfants vous apportent des bonus passifs, puis partent travailler à 16 ans.</p>
+                        </div>
+
+                        <!-- Stats globales -->
+                        <div class="orphanage-stats">
+                            <div class="orphanage-stat-box">
+                                <span class="orphanage-stat-label">Prestige Total Cumulé</span>
+                                <span class="orphanage-stat-value" id="orphanage-prestige-total">0</span>
+                            </div>
+                            <div class="orphanage-stat-box">
+                                <span class="orphanage-stat-label">Capacité</span>
+                                <span class="orphanage-stat-value" id="orphanage-capacity">0/1</span>
+                            </div>
+                            <div class="orphanage-stat-box">
+                                <span class="orphanage-stat-label">Bonus Global Actuel</span>
+                                <span class="orphanage-stat-value" id="orphanage-global-bonus">+0%</span>
+                            </div>
+                        </div>
+
+                        <div class="orphanage-next-child">
+                            <span id="orphanage-next-child">Prochain enfant dans X jours</span>
+                        </div>
+
+                        <!-- Enfants présents -->
+                        <div class="orphanage-section">
+                            <h3 class="orphanage-section-title">👶 Enfants à l'Orphelinat</h3>
+                            <div id="orphanage-children-list" class="orphanage-children-list">
+                                <!-- Les enfants seront générés dynamiquement -->
+                            </div>
+                        </div>
+
+                        <!-- Bonus permanents -->
+                        <div class="orphanage-section">
+                            <h3 class="orphanage-section-title">🎓 Enfants Partis (Bonus Permanents)</h3>
+                            <div id="orphanage-bonus-list" class="orphanage-bonus-list">
+                                <!-- Les bonus seront générés dynamiquement -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Footer avec sauvegarde -->
+        <footer class="game-footer">
+            <div class="save-controls">
+                <button id="save-button" class="save-button">Sauvegarder</button>
+                <button id="export-button" class="export-button">Exporter</button>
+                <button id="import-button" class="import-button">Importer</button>
+                <button id="reset-button" class="reset-button">Réinitialiser</button>
+                <input type="file" id="import-file" accept=".json" style="display: none;">
+            </div>
+            <div id="auto-report-container" class="auto-report-container" style="display: none;">
+                <label class="auto-report-label">
+                    <input type="checkbox" id="auto-report-checkbox" onchange="toggleAutoReport()">
+                    <span>⚡ Rapports automatiques (Marchand niv. 1)</span>
+                </label>
+            </div>
+            <span id="save-message" class="save-message"></span>
+        </footer>
+    </div>
+
+    <!-- Modal du rapport de production -->
+    <div id="report-modal" class="modal">
+        <div class="modal-content">
+            <h2 class="modal-title">Rapport de la Journée</h2>
+            <div id="report-content" class="report-content">
+                <!-- Le contenu sera généré dynamiquement -->
+            </div>
+            <button id="continue-button" class="continue-button">Continuer</button>
+        </div>
+    </div>
+
+    <!-- Modal des capacités -->
+    <div id="abilities-modal" class="modal">
+        <div class="modal-content abilities-modal-content">
+            <h2 class="modal-title" id="abilities-modal-title">Capacités</h2>
+            <div id="abilities-content" class="abilities-content">
+                <!-- Le contenu sera généré dynamiquement -->
+            </div>
+            <button id="close-abilities-button" class="continue-button">Fermer</button>
+        </div>
+    </div>
+
+    <!-- Modal de cheat -->
+    <div id="cheat-modal" class="modal">
+        <div class="modal-content">
+            <h2 class="modal-title">🎮 Mode Triche</h2>
+            <div class="cheat-content">
+                <p class="cheat-description">Entrez le montant d'argent à ajouter (en pc) :</p>
+                <input type="number" id="cheat-amount" class="cheat-input" placeholder="Ex: 1000000000" min="0" step="1">
+                <div class="cheat-quick-buttons">
+                    <button class="cheat-quick-btn" onclick="setCheatAmount(100)">+1 pa</button>
+                    <button class="cheat-quick-btn" onclick="setCheatAmount(10000)">+1 po</button>
+                    <button class="cheat-quick-btn" onclick="setCheatAmount(1000000)">+1 pp</button>
+                    <button class="cheat-quick-btn" onclick="setCheatAmount(1000000000)">+1 ♦</button>
+                    <button class="cheat-quick-btn" onclick="setCheatAmount(1000000000000)">+1 ✦</button>
+                </div>
+                <div class="cheat-actions">
+                    <button class="cheat-add-button" onclick="addCheatMoney()">Ajouter l'argent</button>
+                    <button class="cheat-close-button" onclick="closeCheatModal()">Fermer</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="data.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>

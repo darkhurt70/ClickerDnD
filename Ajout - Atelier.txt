@@ -1,0 +1,236 @@
+📘 Cahier des charges – Atelier de Craft
+🧱 1. Déblocage
+
+| Élément        | Détail                                                                                             |
+| -------------- | -------------------------------------------------------------------------------------------------- |
+| Débloqué après | **1ère réincarnation** (prestige > 0)                                                              |
+| Apcès          | Ajout d’un **onglet “Atelier”** dans l’interface principale                                        |
+| Objectif       | Gérer le **craft**, l’**optimisation des ressources**, et la **construction de monuments uniques** |
+
+⚙️ 2. Fonctionnalités principales
+
+| Fonction                         | Description                                                                                  |
+| -------------------------------- | -------------------------------------------------------------------------------------------- |
+| 🎛️ **Slots actifs**             | Permettent de **lancer plusieurs crafts en parallèle** (limité à 6)                          |
+| 📜 **File d’attente**            | Permet d’ajouter des crafts à faire automatiquement **une fois un slot libre** (limite à 10) |
+| 🧾 **Craft standard**            | Crée des objets revendables à partir de ressources                                           |
+| 🏛️ **Craft unique (Monuments)** | Fabrique des structures uniques apportant des **effets passifs permanents** et de nouveaux craft !                  |
+| 📈 **Progression**               | Les slots et la file sont **améliorables via achat**, avec des coûts exponentiels équilibrés |
+
+3. Slots simultanées
+| Détail               | Valeur                                   |
+| -------------------- | ---------------------------------------- |
+| Slots de base        | 1 offert                                 |
+| Slots max            | **6**                                    |
+| Chaque slot s’achète | Avec un **coût exponentiel très brutal** |
+
+Formule : Prix du slot n = 100 po × (10 ^ (n - 2))
+
+Tableau des cout :
+| Slot | Prix (po)        | Valeur (pc)       | Conversion                 |
+| ---- | ---------------- | ----------------- | -------------------------- |
+| 1    | Gratuit          | 0                 | -                          |
+| 2    | 100 po           | 1 000 000 pc      | Apcessible tôt             |
+| 3    | **1 000 po**     | 10 000 000 pc     | **1 diamant (♦)**          |
+| 4    | **10 000 po**    | 100 000 000 pc    | **10 diamants (1 ✦)**      |
+| 5    | **100 000 po**   | 1 000 000 000 pc  | **100 ♦ = 10 ✦**           |
+| 6    | **1 000 000 po** | 10 000 000 000 pc | **1 ∞ (souffle cosmique)** |
+
+4. File d'attente 
+
+| Détail          | Valeur                                                     |
+| --------------- | ---------------------------------------------------------- |
+| Taille de base  | 1 (gratuite)                                               |
+| Taille maximale | **10**                                                     |
+| But             | Permet de **préparer les crafts suivants** automatiquement |
+
+Formule prix : Prix file n = 10 po × (2 ^ (n - 2))
+| File | Prix (po)    | pc                | Total cumulé                                |
+| ---- | ------------ | ----------------- | ------------------------------------------- |
+| 1    | Gratuit      | 0                 | 0                                           |
+| 2    | 10 po        | 100 000 pc        | 100 000                                     |
+| 3    | 20 po        | 200 000 pc        | 300 000                                     |
+| 4    | 40 po        | 400 000 pc        | 700 000                                     |
+| 5    | 80 po        | 800 000 pc        | 1 500 000                                   |
+| 6    | 160 po       | 1 600 000 pc      | 3 100 000                                   |
+| 7    | 320 po       | 3 200 000 pc      | 6 300 000                                   |
+| 8    | 640 po       | 6 400 000 pc      | 12 700 000                                  |
+| 9    | 1 280 po     | 12 800 000 pc     | 25 500 000                                  |
+| 10   | **2 560 po** | **25 600 000 pc** | **51 100 000 pc** (≈ **5.11 % de diamant**) |
+
+
+5. craft standards 
+| Élément               | Détail                                                             |
+| --------------------- | ------------------------------------------------------------------  |
+| 🎯 But                | Rentabiliser les ressources en objets + gain d’or                  |
+| 🧾 Recettes           | Demande 1 à 3 ressources (quantité variable selon valeur actuelle) |
+| ⏳ Temps de production | 1 à 14 jours                                                      |
+| 💰 Revente            | Auto ou manuelle après fabrication                                 |
+| 💸 Gain               | Supérieur au cumul des ressources (rentabilité de x1.5 à x10)      |
+
+6. Monuments
+
+| Élément        | Détail                                                    |
+| -------------- | --------------------------------------------------------- |
+| Type           | **Crafts uniques**, très coûteux, **non revendables**     |
+| Durée          | Très longue (5 à 30 jours)                                |
+| Ingrédients    | Ressources massives / divines (souffle, essence, éclats…) |
+| Slots utilisés | Aucun (slot propre Monument)                              |
+| Effet          | **Bonus permanent** sur :                                 |
+
+Craft de tier correspondant
+
+Ajout de craft
+
+7. Interface de l'atelier 
+
+| Composant                  | Fonction                                                        |
+| -------------------------- | --------------------------------------------------------------- |
+| 🎛️ **Slots actifs**       | Montre les crafts en cours, progression visuelle                |
+| 📜 **File d’attente**      | Liste de crafts prévus, auto-lancement dès qu’un slot se libère |
+| 🧾 **Liste des recettes**  | Triables par durée / rentabilité / rareté                       |
+| 🏛️ **Onglet "Monuments"** | Liste des crafts uniques avec progression et effets             |
+| ➕ **Boutons spéciaux**     | Acheter slot / file, apcès rapide aux Monuments                 |
+
+
+🧾 Liste de Crafts Normaux (les prix seront adapés selon les conversions)
+**📃 Liste de Crafts Normaux (Version équilibrée)**
+
+Tous les crafts suivants :
+
+* Utilisent uniquement les ressources produites par les bâtiments (aucune ressource externe)
+* Sont revendables, avec un rapport de rentabilité **calculé dynamiquement**
+* Intègrent un bonus de +10% s'ils utilisent un craft d'un tier précédent comme ingrédient
+
+---
+
+## 🥀 Tier 1 — Simples
+
+| Craft            | Ingrédients                             | Temps | Multiplicateur |
+|------------------|-----------------------------------------|-------|----------------|
+| Soupe paysanne   | 3 Légumes + 1 Viande                    | 1 j   | x1.4           |
+| Sac en cuir      | 3 Peaux                                 | 1 j   | x1.3           |
+| Ration simple    | 2 Légumes + 1 Viande                    | 1 j   | x1.25          |
+| Viande séchée    | 2 Viandes                               | 1 j   | x1.2           |
+| Trousse rustique | 1 Sac en cuir + 1 Ration simple         | 2 j   | x1.5           |
+
+
+
+
+---
+
+## 📈 Tier 2 — Artisanat brut
+
+| Craft              | Ingrédients                             | Temps | Multiplicateur |
+|--------------------|-----------------------------------------|-------|----------------|
+| Lingot brut        | 2 Minerais                              | 2 j   | x1.5           |
+| Lame brute         | 1 Arme  + 2 lingots brut    | 2 j   | x1.4           |
+| Sac renforcé       | 1 Sac en cuir + 1 Peau                  | 2 j   | x1.6           |
+| Couteau utilitaire | 1 Lame brute + 10 Peau                   | 3 j   | x1.7           |
+| Ration renforcée   | 1 Ration simple + 10 Viande              | 2 j   | x1.6           |
+
+
+---
+
+## 📊 Tier 3 — Alchimique & magique
+
+| Craft              | Ingrédients                               | Temps | Multiplicateur |
+|--------------------|-------------------------------------------|-------|----------------|
+| Essence alchimique | 2 Potions    +20 viandes           | 3 j   | x1.8           |
+| Catalyseur de mana | 2 Cristaux de mana  +   10 lingot brut                    | 3 j   | x1.9           |
+| Potion d’endurance | 1 ELixir mineur + 2 Ration renforcée             | 3 j   | x2.0           |
+| Talisman instable  | 1 Catalyseur de mana + 1 Sac renforcé        | 4 j   | x2.1           |
+| Élixir mineur      | 1 Essence alchimique + 1 Potion           | 4 j   | x2.3           |
+
+
+---
+
+## 🔄 Tier 4 — Sacré et cosmique
+
+| Craft               | Ingrédients                                     | Temps | Multiplicateur |
+|---------------------|-------------------------------------------------|-------|----------------|
+| Sceau consacré      | 1 Sceau magique + 10 Essence alchimique          | 5 j   | x2.6           |
+| Relique éveillée    | 3 Relique sacrée + 11 Catalyseur de mana         | 6 j   | x2.8           |
+| Condensat cosmique  | 2 Énergie cosmique + 27 Cristal de mana          | 6 j   | x3.0           |
+| Insigne astral      | 2 Sceau consacré + 1 Talisman instable          | 7 j   | x3.2           |
+| Élixir transcendant | 10 Élixir mineur + 1 Condensat cosmique          | 7 j   | x3.5           |
+
+
+---
+
+## 🔮 Tier 5 — ENTROPIQUE & STELLAIRE
+
+| Craft                  | Ingrédients                                         | Temps | Multiplicateur |
+|------------------------|-----------------------------------------------------|-------|----------------|
+| Fragment du néant      | 1 Écho du néant     + 27 Reliques éveillée                                | 8 j   | x4.0           |
+| Sablier fracturé       | 1 Sablier éternel + 100 Condensat cosmique            | 9 j   | x5.0           |
+| Cœur instable          | 4 Cœur d’étoile + 17 Élixir transcendant             | 10 j  | x6.0           |
+| Essence d’effondrement | 3 Fragment du néant + 12 Relique éveillée            | 11 j  | x7.0           |
+| Artefact originel      | 1 Essence d’effondrement + 1 Cœur instable          | 14 j  | x8.0           |
+
+
+---
+
+
+**📜 TABLEAU DES MONUMENTS (Version Finale)**
+
+Chaque monument :
+
+* Cible un **Tier de craft (1 à 7)**
+* Offre un **bonus passif** sur les gains de ce tier
+* Coûte très cher à **construire**
+* Débloque un **nouveau craft très rentable** lié à ce tier
+
+| Monument                 | Tier | Ingrédients requis                                                                 | Temps |
+|--------------------------|------|--------------------------------------------------------------------------------------|-------|
+| Autel des Premiers Jours | T1   | 500 Soupes paysannes + 500 Rations simples + 300 Sacs en cuir + 1 Emblème de Subsistance | 10 j  |
+
+| Monument                  | Tier | Ingrédients requis                                                                                   | Temps |
+|---------------------------|------|--------------------------------------------------------------------------------------------------------|-------|
+| Forge des Liens Forgés    | T2   | 300 Lingots bruts + 250 Couteaux utilitaires + 200 Sacs renforcés + 1 Insigne d’Artisanat              | 14 j  |
+
+| Monument                    | Tier | Ingrédients requis                                                                                         | Temps |
+|-----------------------------|------|--------------------------------------------------------------------------------------------------------------|-------|
+| Cercle Alchimique Majeur    | T3   | 200 Essences alchimiques + 150 Talismans instables + 100 Élixirs mineurs + 1 Sceau de Convergence           | 18 j  |
+
+| Monument               | Tier | Ingrédients requis                                                                                              | Temps |
+|------------------------|------|-------------------------------------------------------------------------------------------------------------------|-------|
+| Sanctuaire Astral      | T4   | 120 Reliques éveillées + 100 Insignes astrals + 80 Élixirs transcendants + 1 Sigil de Transcendance             | 22 j  |
+
+| Monument            | Tier | Ingrédients requis                                                                                                 | Temps |
+|---------------------|------|----------------------------------------------------------------------------------------------------------------------|-------|
+| Nexus de l’Origine  | T5   | 50 Fragments du néant + 40 Sabliers fracturés + 30 Cœurs instables + 1 Clef de l’Apocalypse                        | 30 j  |
+
+
+
+---
+
+**🆕 CRAFTS DÉBLOQUÉS PAR MONUMENT** nécessite tout les bâtiment pour être faite
+
+| Craft             | Ingrédients                                                                 | Temps | Multiplicateur |
+|-------------------|------------------------------------------------------------------------------|-------|----------------|
+| Rose d’Éther I    | 10 Soupes paysannes + 10 Rations simples + 5 Trousses rustiques              | 6 j   | x3.0           |
+
+| Craft             | Ingrédients                                                                               | Temps | Multiplicateur |
+|-------------------|--------------------------------------------------------------------------------------------|-------|----------------|
+| Rose d’Éther II   | 5 Lingots bruts + 5 Couteaux utilitaires + 3 Sacs renforcés + 2 Rose d’Éther I             | 8 j   | x4.0           |
+
+| Craft             | Ingrédients                                                                                     | Temps | Multiplicateur |
+|-------------------|--------------------------------------------------------------------------------------------------|-------|----------------|
+| Rose d’Éther III  | 4 Essences alchimiques + 3 Talismans instables + 2 Élixirs mineurs + 3 Rose d’Éther II          | 10 j  | x5.0           |
+
+| Craft             | Ingrédients                                                                                         | Temps | Multiplicateur |
+|-------------------|------------------------------------------------------------------------------------------------------|-------|----------------|
+| Rose d’Éther IV   | 3 Reliques éveillées + 2 Insignes astrals + 2 Élixirs transcendants + 5 Rose d’Éther III            | 12 j  | x6.5           |
+
+| Craft             | Ingrédients                                                                                         | Temps | Multiplicateur |
+|-------------------|------------------------------------------------------------------------------------------------------|-------|----------------|
+| Rose d’Éther V    | 2 Fragments du néant + 2 Sabliers fracturés + 1 Cœur instable + 3 Rose d’Éther IV                   | 16 j  | x8.0           |
+
+| Méga Craft               | Ingrédients                                                                                 | Temps | Multiplicateur |
+|--------------------------|----------------------------------------------------------------------------------------------|-------|----------------|
+| Rose d’Éther      | Rose d’Éther I + II + III + IV + V                                                           | 25 j  | x12.0          |
+
+La première Rose d'ether crée double le prestige gagné
+
+
