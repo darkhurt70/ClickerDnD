@@ -868,22 +868,11 @@ function sellResource(resourceName, quantity) {
     // Calculer l'argent gagné
     let moneyGained = price * quantity;
 
-    // Appliquer le bonus de vente
+    // Appliquer UNIQUEMENT le bonus de vente
+    // Les bonus globaux (global_bonus, prestige, orphelinat) affectent la PRODUCTION, pas le prix de vente
     const sellBonus = getSellBonus();
     if (sellBonus > 0) {
         moneyGained = moneyGained * (1 + sellBonus / 100);
-    }
-
-    // Appliquer le bonus global (Marchand)
-    const globalBonus = getGlobalBonus();
-    if (globalBonus > 0) {
-        moneyGained = moneyGained * (1 + globalBonus / 100);
-    }
-
-    // Appliquer le bonus de prestige
-    const prestigeBonus = getPrestigeBonus();
-    if (prestigeBonus > 0) {
-        moneyGained = moneyGained * (1 + prestigeBonus / 100);
     }
 
     // Vendre
